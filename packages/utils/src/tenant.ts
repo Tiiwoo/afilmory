@@ -50,4 +50,4 @@ export function isTenantSlugReserved(slug: string): boolean {
   return RESERVED_TENANT_SLUGS.includes(normalized as ReservedTenantSlug)
 }
 
-export const DEFAULT_BASE_DOMAIN = 'afilmory.art'
+export const DEFAULT_BASE_DOMAIN = process.env?.DEFAULT_BASE_DOMAIN || 'afilmory.art'
