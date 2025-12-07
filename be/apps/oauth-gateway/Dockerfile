@@ -6,6 +6,8 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable && corepack prepare pnpm@10.19.0 --activate
 
 FROM base AS builder
+# Add build tools for native dependencies (libpq, etc.)
+RUN apk add --no-cache python3 make g++ postgresql-dev
 WORKDIR /workspace
 
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
